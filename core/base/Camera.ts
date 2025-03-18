@@ -61,7 +61,7 @@ export class Camera {
     this.ctx.fillRect(0, 0, width, height);
   }
 
-  public setZoom(value: number, point?: Point) {
+  setZoom(value: number, point?: Point) {
     let zoom: number;
     let x: number;
     let y: number;
@@ -92,12 +92,22 @@ export class Camera {
     }
   }
 
-  public getProjectedBox(node: Node): Box {
+  getProjectedBox(node: Node): Box {
     return {
       x: (node.x + this.left) * this.scale,
       y: (node.y + this.top) * this.scale,
       width: node.width * this.scale,
       height: node.height * this.scale,
     };
+  }
+
+  move(point: Point) {
+    const xShift = point.x / this.scale;
+    const yShift = point.y / this.scale;
+
+    this.top += yShift;
+    this.left += xShift;
+    this.bottom += yShift;
+    this.right += xShift;
   }
 }
