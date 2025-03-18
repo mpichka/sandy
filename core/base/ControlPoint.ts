@@ -47,7 +47,7 @@ export class ControlPoint {
           -halfHypotenuse,
           hypotenuse,
           hypotenuse,
-          10
+          10,
         );
         break;
       }

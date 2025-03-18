@@ -4,12 +4,14 @@ import { Theme } from './base/Theme';
 
 export class Engine {
   container!: Container;
+  isInitialized = false;
 
   public init(canvas: HTMLCanvasElement) {
     this.container = new Container();
     this.container.camera = new Camera(this.container, canvas);
     this.container.palette = new Palette();
     this.container.theme = new Theme();
+    this.isInitialized = true;
   }
 
   public render() {

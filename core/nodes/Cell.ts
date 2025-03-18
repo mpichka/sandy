@@ -24,6 +24,6 @@ export class Cell extends Node {
     if (!color) return;
 
     ctx.fillStyle = color.hex;
-    ctx.fillRect(0, 0, this.width, this.height);
+    ctx.fillRect(0, 0, this.width * camera.scale, this.height * camera.scale);
   }
 }

@@ -1,0 +1,11 @@
+.paper {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+  padding: 0.5em;
+}
+
+@media (min-width: 900px) {
+  .paper {
+    border-radius: 0.5em;
+  }
+}

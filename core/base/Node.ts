@@ -157,9 +157,10 @@ export class Node {
     if (this.visible) {
       const camera = this.container.camera;
       const ctx = camera.ctx;
+      const box = camera.getProjectedBox(this);
 
       ctx.save();
-      ctx.translate(this.x, this.y);
+      ctx.translate(box.x, box.y);
 
       if (this.freeRotation) {
         const parentRotation = this.parent ? this.parent.rotation : 0;
@@ -168,7 +169,7 @@ export class Node {
         ctx.rotate(rotation);
       }
 
-      ctx.translate(-this.halfWidth, -this.halfHeight);
+      ctx.translate(-box.width / 2, -box.height / 2);
 
       this.draw();
 

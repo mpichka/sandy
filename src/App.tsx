@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Cell } from '../core';
+import { ZoomController } from './components/ZoomController';
 import { useCursor, useDeviceSettings, useEngine } from './hooks';
 
 function App() {
@@ -39,8 +40,11 @@ function App() {
         engineRef.current.container,
         engineRef.current.container.palette,
       );
+      const projectedPoint =
+        engineRef.current.container.camera.getProjectedPoint(cursor.current);
+
       cell
-        .setPosition(cursor.currentX, cursor.currentY)
+        .setPosition(projectedPoint.x, projectedPoint.y)
         .setSize(20, 20)
         .setColor(1);
       engineRef.current.addNode(cell);
@@ -56,6 +60,7 @@ function App() {
         width={deviceSettings.width}
         height={deviceSettings.height}
       />
+      <ZoomController engineRef={engineRef} />
     </>
   );
 }

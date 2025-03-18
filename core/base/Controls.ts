@@ -22,14 +22,38 @@ export class Controls {
     this.container = container;
     this.parent = parent;
     this.rotateControl = new ControlPoint(this, ControlPointAction.ROTATE);
-    this.resizeTopControl = new ControlPoint(this, ControlPointAction.RESIZE_TOP);
-    this.resizeTopRightControl = new ControlPoint(this, ControlPointAction.RESIZE_TOP_RIGHT);
-    this.resizeRightControl = new ControlPoint(this, ControlPointAction.RESIZE_RIGHT);
-    this.resizeBottomRightControl = new ControlPoint(this, ControlPointAction.RESIZE_BOTTOM_RIGHT);
-    this.resizeBottomControl = new ControlPoint(this, ControlPointAction.RESIZE_BOTTOM);
-    this.resizeBottomLeftControl = new ControlPoint(this, ControlPointAction.RESIZE_BOTTOM_LEFT);
-    this.resizeLeftControl = new ControlPoint(this, ControlPointAction.RESIZE_LEFT);
-    this.resizeTopLeftControl = new ControlPoint(this, ControlPointAction.RESIZE_TOP_LEFT);
+    this.resizeTopControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_TOP,
+    );
+    this.resizeTopRightControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_TOP_RIGHT,
+    );
+    this.resizeRightControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_RIGHT,
+    );
+    this.resizeBottomRightControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_BOTTOM_RIGHT,
+    );
+    this.resizeBottomControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_BOTTOM,
+    );
+    this.resizeBottomLeftControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_BOTTOM_LEFT,
+    );
+    this.resizeLeftControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_LEFT,
+    );
+    this.resizeTopLeftControl = new ControlPoint(
+      this,
+      ControlPointAction.RESIZE_TOP_LEFT,
+    );
   }
 
   get visible(): boolean {
@@ -168,7 +192,6 @@ export class Controls {
       ctx.translate(this.x, this.y);
       ctx.rotate(rotation);
       ctx.translate(-this.parent.halfWidth, -this.parent.halfHeight);
-
 
       this.resizeTopControl.draw();
       this.resizeRightControl.draw();
