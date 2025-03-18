@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+npm run lint
+npm run format
+git diff --cached --name-status | grep -v -e '^D' -e '^R' | awk '{print $2}' | xargs git add
